@@ -147,6 +147,6 @@ publish:
 	go mod tidy
 	git tag $(TAG)
 	git push origin $(TAG)
-	GOPROXY=proxy.golang.org go list -m github.com/thirdweb-dev/go-sdk/v2@$(TAG)
+	GOPROXY=proxy.golang.org go list -m github.com/sontungpytn/go-sdk/v2@$(TAG)
 
 FORCE: ;

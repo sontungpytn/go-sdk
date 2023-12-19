@@ -6,11 +6,11 @@ import (
 	"time"
 
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/thirdweb-dev/go-sdk/v2/abi"
+	"github.com/sontungpytn/go-sdk/v2/abi"
 )
 
 type SDKOptions struct {
-	SecretKey     string
+	SecretKey  string
 	PrivateKey string
 	GatewayUrl string
 	HttpClient *http.Client
@@ -68,13 +68,13 @@ type EditionMetadataInput struct {
 }
 
 type PreparedClaimTo struct {
-	Receiver common.Address
-	Quantity *big.Int
-	Currency common.Address
-	PricePerToken *big.Int
+	Receiver       common.Address
+	Quantity       *big.Int
+	Currency       common.Address
+	PricePerToken  *big.Int
 	AllowlistProof abi.IDropAllowlistProof
-	Data []byte
-	Value *big.Int
+	Data           []byte
+	Value          *big.Int
 }
 
 type ClaimVerification struct {
@@ -194,7 +194,7 @@ type Signature1155PayloadInputWithTokenId struct {
 	MintEndTime          int
 	PrimarySaleRecipient string
 	Metadata             *NFTMetadataInput
-	TokenId              int
+	TokenId              *big.Int
 	RoyaltyRecipient     string
 	RoyaltyBps           int
 	Quantity             int
@@ -210,7 +210,7 @@ type Signature1155PayloadOutput struct {
 	Metadata             *NFTMetadataInput `json:"metadata"`
 	RoyaltyRecipient     string            `json:"royaltyRecipient"`
 	RoyaltyBps           int               `json:"royaltyBps"`
-	TokenId              int               `json:"tokenId"`
+	TokenId              *big.Int          `json:"tokenId"`
 	Quantity             int               `json:"quantity"`
 	Uri                  string            `json:"uri"`
 	Uid                  [32]byte          `json:"uid"`

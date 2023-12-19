@@ -5,10 +5,11 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"math/big"
 	"os"
 
+	"github.com/sontungpytn/go-sdk/v2/thirdweb"
 	"github.com/spf13/cobra"
-	"github.com/thirdweb-dev/go-sdk/v2/thirdweb"
 )
 
 var (
@@ -182,7 +183,7 @@ var editionSigmintTokenIdCmd = &cobra.Command{
 				RoyaltyRecipient: "0x0000000000000000000000000000000000000000",
 				RoyaltyBps:       0,
 				Quantity:         11,
-				TokenId:          0,
+				TokenId:          big.NewInt(0),
 			},
 		)
 		if err != nil {

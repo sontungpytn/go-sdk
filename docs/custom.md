@@ -11,7 +11,7 @@ Let's take a look at how you can get a custom contract instance for one of your 
 
 ```
 import (
-	"github.com/thirdweb-dev/go-sdk/v2/thirdweb"
+	"github.com/sontungpytn/go-sdk/v2/thirdweb"
 )
 
 privateKey := "..."
@@ -33,7 +33,7 @@ Alternatively, if you didn't deploy your contract with thirdweb deploy, you can 
 
 ```
 import (
-	"github.com/thirdweb-dev/go-sdk/v2/thirdweb"
+	"github.com/sontungpytn/go-sdk/v2/thirdweb"
 )
 
 privateKey = "..."

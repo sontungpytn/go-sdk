@@ -5,7 +5,7 @@ You can access the NFT Drop interface from the SDK as follows:
 
 ```
 import (
-	"github.com/thirdweb-dev/go-sdk/v2/thirdweb"
+	"github.com/sontungpytn/go-sdk/v2/thirdweb"
 )
 
 privateKey := "..."

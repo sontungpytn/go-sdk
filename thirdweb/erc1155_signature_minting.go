@@ -16,7 +16,7 @@ import (
 	signerTypes "github.com/ethereum/go-ethereum/signer/core/apitypes"
 	"github.com/google/uuid"
 
-	"github.com/thirdweb-dev/go-sdk/v2/abi"
+	"github.com/sontungpytn/go-sdk/v2/abi"
 )
 
 // You can access this interface from the edition contract under the
@@ -216,7 +216,7 @@ func (signature *ERC1155SignatureMinting) Generate(ctx context.Context, payloadT
 		RoyaltyRecipient:     payloadToSign.RoyaltyRecipient,
 		RoyaltyBps:           payloadToSign.RoyaltyBps,
 		Quantity:             payloadToSign.Quantity,
-		TokenId:              -1,
+		TokenId:              big.NewInt(-1),
 	}
 
 	payload, err := signature.GenerateFromTokenId(ctx, payloadWithTokenId)
@@ -313,7 +313,7 @@ func (signature *ERC1155SignatureMinting) GenerateBatch(ctx context.Context, pay
 			RoyaltyRecipient:     payloadToSign.RoyaltyRecipient,
 			RoyaltyBps:           payloadToSign.RoyaltyBps,
 			Quantity:             payloadToSign.Quantity,
-			TokenId:              -1,
+			TokenId:              big.NewInt(-1),
 		}
 		payloadsWithTokenIds = append(payloadsWithTokenIds, payloadWithTokenId)
 	}
@@ -487,8 +487,8 @@ func (signature *ERC1155SignatureMinting) GenerateBatchFromTokenIds(ctx context.
 
 func generateMessage(mintRequest *Signature1155PayloadOutput) signerTypes.TypedDataMessage {
 	// If tokenID < 0, set it to MaxUin256 (to mint a new NFT)
-	tokenId := big.NewInt(int64(mintRequest.TokenId))
-	if mintRequest.TokenId < 0 {
+	tokenId := mintRequest.TokenId
+	if mintRequest.TokenId.String() == "-1" {
 		MaxUint256 := new(big.Int).Sub(new(big.Int).Lsh(common.Big1, 256), common.Big1)
 		tokenId = MaxUint256
 	}
@@ -518,8 +518,8 @@ func (signature *ERC1155SignatureMinting) mapPayloadToContractStruct(ctx context
 	}
 
 	// If tokenID < 0, set it to MaxUin256 (to mint a new NFT)
-	tokenId := big.NewInt(int64(mintRequest.TokenId))
-	if mintRequest.TokenId < 0 {
+	tokenId := mintRequest.TokenId
+	if mintRequest.TokenId.String() == "-1" {
 		MaxUint256 := new(big.Int).Sub(new(big.Int).Lsh(common.Big1, 256), common.Big1)
 		tokenId = MaxUint256
 	}

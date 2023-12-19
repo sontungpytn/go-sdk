@@ -1,4 +1,4 @@
-module github.com/thirdweb-dev/go-sdk/v2
+module github.com/sontungpytn/go-sdk/v2
 
 go 1.16
 
@@ -35,3 +35,5 @@ require (
 	golang.org/x/sync v0.0.0-20220513210516-0976fa681c29 // indirect
 	golang.org/x/sys v0.0.0-20220513210249-45d2b4557a2a // indirect
 )
+
+replace github.com/sontungpytn/go-sdk/v2 => github.com/sontungpytn/go-sdk/v2 v2.1.0
